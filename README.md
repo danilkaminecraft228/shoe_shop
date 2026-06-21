@@ -48,24 +48,24 @@ python main.py
 ### Администратор (полный доступ)
 | Логин | Пароль | ФИО |
 |-------|--------|-----|
-| `94d5ous@gmail.com` | `uzWC67` | Никифорова Весения Николаевна |
-| `uth4iz@mail.com` | `2L6KZG` | Сазонов Руслан Германович |
-| `yzls62@outlook.com` | `JlFRCZ` | Одинцов Серафим Артёмович |
+| `nikiforova@gmail.com` | `nikiforova1+` | Никифорова Весения Николаевна |
+| `sazonov@gmail.com` | `sazonov1+` | Сазонов Руслан Германович |
+| `odintsov@gmail.com` | `odintsov1+` | Одинцов Серафим Артёмович |
 
 ### Менеджер (товары + заказы)
 | Логин | Пароль | ФИО |
 |-------|--------|-----|
-| `1diph5e@tutanota.com` | `8ntwUp` | Степанов Михаил Артёмович |
-| `tjde7c@yahoo.com` | `YOyhfR` | Ворсин Петр Евгеньевич |
-| `wpmrc3do@tutanota.com` | `RSbvHv` | Старикова Елена Павловна |
+| `stepanov@gmail.com` | `stepanov1+` | Степанов Михаил Артёмович |
+| `vorsin@gmail.com` | `vorsin1+` | Ворсин Петр Евгеньевич |
+| `starikova@gmail.com` | `starikova1+` | Старикова Елена Павловна |
 
 ### Авторизованный клиент (просмотр товаров)
 | Логин | Пароль | ФИО |
 |-------|--------|-----|
-| `5d4zbu@tutanota.com` | `rwVDh9` | Михайлюк Анна Вячеславовна |
-| `ptec8ym@yahoo.com` | `LdNyos` | Ситдикова Елена Анатольевна |
-| `1qz4kw@mail.com` | `gynQMT` | Ворсин Петр Евгеньевич |
-| `4np6se@mail.com` | `AtnDjr` | Старикова Елена Павловна |
+| `mikhaylyuk@gmail.com` | `mikhaylyuk1+` | Михайлюк Анна Вячеславовна |
+| `sitdikova@gmail.com` | `sitdikova1+` | Ситдикова Елена Анатольевна |
+| `vorsin.cli@gmail.com` | `vorsin1+` | Ворсин Петр Евгеньевич |
+| `starikova.cli@gmail.com` | `starikova1+` | Старикова Елена Павловна |
 
 ### Гость
 Кнопка **«Войти как гость»** — просмотр товаров без авторизации.
