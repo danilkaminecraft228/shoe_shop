@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Resources (изображения генерируются/загружаются)
+resources/products/*.jpg
+resources/products/*.png
+
+# Database import files (Excel исходники)
+*.xlsx
