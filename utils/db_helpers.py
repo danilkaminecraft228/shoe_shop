@@ -333,6 +333,62 @@ def get_all_order_statuses():
         connection.close()
 
 
+def get_filtered_orders(search_text="", date_from=None, date_to=None):
+    """
+    Возвращает заказы с фильтрацией по поиску и датам.
+
+    search_text — поиск по ID заказа, ФИО клиента, адресу, коду получения.
+    date_from — начальная дата (строка 'YYYY-MM-DD' или None).
+    date_to — конечная дата (строка 'YYYY-MM-DD' или None).
+    """
+    connection = create_connection()
+    if not connection:
+        return []
+    cursor = connection.cursor(dictionary=True)
+    try:
+        query = """
+            SELECT
+                o.id, o.order_date, o.delivery_date, o.receive_code,
+                pp.address AS pickup_address,
+                u.full_name AS client_name,
+                os.name AS status_name,
+                (SELECT GROUP_CONCAT(CONCAT(p2.article, ' (', oi2.quantity, ')')
+                 SEPARATOR ', ')
+                 FROM order_items oi2
+                 JOIN products p2 ON oi2.product_id = p2.id
+                 WHERE oi2.order_id = o.id) AS items_info
+            FROM orders o
+            JOIN pickup_points pp ON o.pickup_point_id = pp.id
+            JOIN users u ON o.client_id = u.id
+            JOIN order_statuses os ON o.status_id = os.id
+            WHERE 1=1
+        """
+        params = []
+
+        if search_text:
+            query += """
+                AND (o.id LIKE %s OR u.full_name LIKE %s
+                     OR pp.address LIKE %s OR o.receive_code LIKE %s)
+            """
+            like = f"%{search_text}%"
+            params.extend([like, like, like, like])
+
+        if date_from:
+            query += " AND o.order_date >= %s"
+            params.append(date_from)
+
+        if date_to:
+            query += " AND o.order_date <= %s"
+            params.append(date_to)
+
+        query += " ORDER BY o.order_date DESC"
+        cursor.execute(query, params)
+        return cursor.fetchall()
+    finally:
+        cursor.close()
+        connection.close()
+
+
 def get_all_orders():
     """
     Возвращает список заказов с расшифровками.
